@@ -19,4 +19,33 @@ CUSTOM HOOKS
   Al abstraer usando Hooks nos facilita la lectura del codigo, teniendo 
   las partes que le competen al componente en una seccion y las partes de 
   la funcionalidad del hook en otra diferente.
-Cuando vale la pena implementarlo? Bajo nuestro criterio cuando veamos necesario abstraer una logica.
+  Cuando vale la pena implementarlo? Bajo nuestro criterio cuando veamos 
+  necesario abstraer una logica.
+
+ **useEffect
+
+  Los efectos son una herramienta, específicamente un react hook que nos 
+  permiten ejecutar cierta parte del código de nuestros componentes para 
+  que no se ejecuten cada vez que hacemos render de nuestro componente, 
+  sino, dependiendo de ciertas condiciones.
+
+  el react hook llamado “React.useEffect” ejecuta el código que le 
+  enviemos no después de renderizar el componente sino justo antes, 
+  cuando react ya tiene todo preparado para renderizar. 
+    Si queremos ejecutarlo después de que se hizo el render usamos 
+    “React.useLayoutEffect” (en caso de eventos, event listeners o cosas 
+    por el estilo).
+  
+  Se ejecuta antes de hacer el render, de transformar react a html 
+  cuando ya react termino de hacer todos sus cálculos internos.
+
+  -Podemos enviar un array vacío para decirle a nuestro efecto solo se 
+  ejecute una vez, cuando recién hacemos el primer render de nuestro 
+  componente.
+  -O también podemos enviar un array con distintos elementos para decirle
+   a nuestro efecto que no solo ejecute el efecto en el primer render, 
+   sino también cuando haya cambios en esos elementos del array.
+  
+  -Si no enviamos ningún array como segundo argumento de nuestro efecto, 
+  esta función se ejecutará cada vez que nuestro componente haga render 
+  (es decir, cada vez que haya cambios en cualquiera de nuestros estados).
