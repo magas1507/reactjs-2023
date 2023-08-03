@@ -49,3 +49,40 @@ CUSTOM HOOKS
   -Si no enviamos ningún array como segundo argumento de nuestro efecto, 
   esta función se ejecutará cada vez que nuestro componente haga render 
   (es decir, cada vez que haya cambios en cualquiera de nuestros estados).
+
+  ***React.Context****
+    -Prop Drilling: es una paso del desarrollo que ocurre cuando necesita
+      mos obtener datos que están en varias capas en el árbol de componentes 
+      React.
+
+      Este se ve siempre cuando pasamos props entre hijos, luego ese a otros 
+      hijos y así sucesivamente… la solución es usar context:
+
+***Context: 
+    es un elemento que podemos crear en React para establecer
+    una comunicación directa entre un componente en un nivel muy alto 
+    y uno en un nivel mucho más bajo.
+
+    Por ende context permite acceder a los valores de forma directa.  
+
+    El contexto permite que un componente proporcione información a 
+    todo el árbol debajo de él.
+
+      Para pasar contexto:
+        -Créelo y expórtelo con export const 
+            MyContext = createContext(defaultValue).
+        
+        -Pásalo al useContext(MyContext)Hook para leerlo en cualquier 
+        componente hijo, sin importar cuán profundo sea.
+        
+        -Envuelva a los children <MyContext.Provider value={...}>
+        para proporcionarlo de un padre.
+        
+        -El contexto pasa a través de cualquier componente en el medio.
+        
+        -El contexto le permite escribir componentes que "se adaptan a su 
+        entorno".
+        
+        -Antes de usar el contexto, intente pasar accesorios o pasar JSX 
+        como children.
+

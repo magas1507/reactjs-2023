@@ -7,50 +7,45 @@ import { TodosLoading } from '../TodoLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmpyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
+import { TodoContext } from '../TodoContext';
 
-const AppUI = ({
-  loading,
-  error,
-  completedTodos,
-  totalTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo,
-}) => {
+
+const AppUI = () => {
   return (
     <>
-      <TodoCounter
-        completed={completedTodos}
-        total={totalTodos} 
-      />
-      <TodoSearch
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
+      <TodoCounter/>
+      <TodoSearch/>
+      <TodoContext.Consumer>
+      {({
+          loading,
+          error,          
+          searchedTodos,
+          completeTodo,
+          deleteTodo
+        }) =>(
+        <TodoList>
+          {loading && (
+            <>
+              <TodosLoading />
+              <TodosLoading />
+              <TodosLoading />
+            </>
+          )}
+          {error && <TodosError/>}
+          {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
 
-      <TodoList>
-        {loading && (
-          <>
-            <TodosLoading />
-            <TodosLoading />
-            <TodosLoading />
-          </>
-        )}
-        {error && <TodosError/>}
-        {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
-
-        {searchedTodos.map(todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+          {searchedTodos.map(todo => (
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
+          ))}
+        </TodoList>
+      )}
+      </TodoContext.Consumer>
       
       <CreateTodoButton />
     </>
