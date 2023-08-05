@@ -4,7 +4,6 @@ import { DeleteIcon } from '../TodoIcon/DeleteIcon'
 import './TodoItem.css';
 
 function TodoItem(props) {
-  console.log(props)
   return (
     <li className="TodoItem">
       <CompleteIcon 

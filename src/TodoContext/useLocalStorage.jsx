@@ -33,15 +33,17 @@ function useLocalStorage(itemName, initialValue) {
     setItem(newItem);
   };
 
-  return ({
+  return {
     item,
     saveItem,
     loading,
     error,
-  });
+  };
 }
 
 export { useLocalStorage };
+
+
 
 // localStorage.removeItem('TODOS_V1');
 

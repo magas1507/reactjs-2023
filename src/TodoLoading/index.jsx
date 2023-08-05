@@ -1,7 +1,7 @@
 import React from 'react';
-//import './TodosLoading.css';
+import './TodoLoading.css';
 
-function TodosLoading() {
+function TodoLoading() {
   return (
     <div className="LoadingTodo-container">
       <span className="LoadingTodo-completeIcon"></span>
@@ -11,4 +11,4 @@ function TodosLoading() {
   );
 }
 
-export { TodosLoading };
+export { TodoLoading };
