@@ -3,15 +3,18 @@ import { TodoContext } from '../TodoContext';
 import './TodoForm.css'; 
 
 const TodoForm = () =>{
-  const {
+  const { 
     addTodo,
     setOpenModal,
   } = React.useContext(TodoContext); 
   const [newTodoValue, setTodoNewValue] = React.useState('');
   
+  const isDescriptionValid = (newTodoValue.length > 1) ? true : false;
+
   const onSubmit = (event) =>{
     event.preventDefault();
-    addTodo(newTodoValue)
+    if (!isDescriptionValid) return;
+    addTodo(newTodoValue.trim());
     setOpenModal(false);  
   };
   
@@ -30,6 +33,7 @@ const TodoForm = () =>{
          placeholder="Agrega una tarea"
          value={newTodoValue}
          onChange={onChange}
+         required
       ></textarea>
       <div className="TodoForm-buttonContainer">
         <button 
@@ -39,8 +43,10 @@ const TodoForm = () =>{
         <button 
           className="TodoForm-button TodoForm-button--add"
           type="submit"
-
-        >Agregar</button>
+          disabled={!isDescriptionValid }
+        >
+          Agregar
+        </button>
       </div>  
     </form>
   )

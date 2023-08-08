@@ -1,4 +1,15 @@
-HOOKS
+  Diferencia de componente y elemento
+    La funcion que empieza con mayuscula es un componente que reciben 
+    propiedades y no renderizan nada en el html, 
+    los elementos estan dentro de componente que luego se convertiran 
+    en html y estos procesan las propiedades recibidas.
+
+    React DOM
+    Es el mecanismo de procesamiento donde ingresan los componentes y 
+    elementos de React y salen etiquetas HTML en la pagina hacia el 
+    usuario fin
+  
+  HOOKS
   -Los hooks son funciones que puedes llamar dentro de componentes funcio
   nales para agregar y manipular características de React, como el estado, 
   el ciclo de vida y los efectos secundarios. 

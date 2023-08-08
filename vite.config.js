@@ -7,4 +7,5 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [react()],
   plugins: [svgr()],
+  base:"/reactjs-2023/",
 })
